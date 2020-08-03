@@ -1,0 +1,43 @@
+from mcpi.minecraft import Minecraft
+import time
+mc = Minecraft.create()
+print(mc.player.getTilePos())
+time.sleep(10)
+x,y,z = mc.player.getTilePos()
+mc.player.setPos(x,y,z)
+time.sleep(1)
+y = y+200
+mc.player.setPos(x,y,z)
+time.sleep(1)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(1)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(10)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(10)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(10)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(10)
+y = y+10
+mc.player.setPos(x,y,z)
+time.sleep(10)
+y = y+10
+while 1+1 ==2:
+    print("yes")
+while 1==1:
+    mc.postToChat("Hello")
+t = 0
+while 1==1:
+    t = t+1
+    mc.postToChat("第"+str(t)+"次")    
+"""
+health = 20
+health =health -2
+print(health)
+"""
