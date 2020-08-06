@@ -1,1 +1,200 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug  6 08:45:17 2020
 
+@author: D305
+"""
+line1 = []
+line2 = []
+line3 = []
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+for i in range(1,4):
+    line1.append(1*i)
+    line2.append(2*i)
+    line3.append(3*i)
+print(line1,line2,line3)
+x,y,z = mc.player.getTilePos()
+mc.setSign(x,y,z,63,0,str(line1),str(line2),str(line3))
+
+
+
+
+
+number = 1
+for i in range(5):
+    for j in range(number):
+        mc.spawnEntity(x,y,z,60)
+    number = number*2
+    mc.postToChat("這次生成了"+str(number)+"隻蠹魚")
+import random
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+x,y,z = mc.player.getTilePos()
+for i in range(10):
+    r = random.randrange(1,5)
+    if r ==1:
+        mc.setBlocks(x,y,z,x+4,y,z,57)
+        x=x+4
+    elif r ==2:
+        mc.setBlocks(x,y,z,x-4,y,z,57)
+        x=x-4
+
+    elif r ==3:
+        mc.setBlocks(x,y,z,x,y,z+4,57)
+        z=z+4
+
+    elif r ==4:
+        mc.setBlocks(x,y,z,x,y,z-4,57)
+        z=z-4
+    
+import random
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+x,y,z = mc.player.getTilePos()
+for i in range(10):
+    r = random.randrange(1,7)
+    b = random.randrange(235,251)
+    if r ==1:
+        mc.setBlocks(x,y,z,x+4,y,z,b)
+        x=x+4
+    elif r ==2:
+        mc.setBlocks(x,y,z,x-4,y,z,b)
+        x=x-4
+    elif r ==3:
+        mc.setBlocks(x,y,z,x,y,z+4,b)
+        z=z+4
+    elif r ==4:
+        mc.setBlocks(x,y,z,x,y,z-4,b)
+        z=z-4
+    
+import random
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+x,y,z = mc.player.getTilePos()
+for i in range(20):
+    r = random.randrange(1,7)
+    b = random.randrange(235,251)
+    if r ==1:
+        mc.setBlocks(x,y,z,x+4,y,z,b)
+        x=x+4
+    elif r ==2:
+        mc.setBlocks(x,y,z,x-4,y,z,b)
+        x=x-4
+    elif r ==3:
+        mc.setBlocks(x,y,z,x,y,z+4,b)
+        z=z+4
+    elif r ==4:
+        mc.setBlocks(x,y,z,x,y,z-4,b)
+        z=z-4
+    elif r ==5:
+        mc.setBlocks(x,y,z,x,y+4,z,b)
+        y=y+4
+    elif r ==6:
+        mc.setBlocks(x,y,z,x,y-4,z,b)
+        y=y-4
+import time
+while True:
+    mc.executeCommand("time add 100")
+    time.sleep(1)
+def func():
+    global str2
+    str2 = "XD"
+func()
+print(str2)
+
+def func():
+    
+    str2 = "XD"
+    return str2
+a = func()
+print(a)
+
+
+import random
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+from time import sleep
+x,y,z = mc.player.getTilePos()
+from random import randrange
+while True:
+    for i in range(10):
+        for j in range(10):
+            r = randrange(0,16)
+            z =z+1
+            mc.setBlock(x,y,z,35,r)
+            sleep(0.1)
+        z = z-10
+        x=x+1
+    x = x-10
+
+
+
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+from random import randrange
+r = randrange(1,16)
+while 1==1:
+    hits = mc.events.pollBlockHits()
+    if len(hits)>0:
+        hit = hits[0]
+        block = mc.getBlockWithData(hit.pos)
+        data = block.data
+        if data ==r:
+            mc.postToChat("恭喜你找到我>///<")
+            mc.setBlock(hit.pos,57)
+            break
+        elif data < r:
+            mc.postToChat("找錯囉! 試試看更大的子ID。")
+        else:
+            mc.postToChat("找錯囉! 試試看更小的子ID。")
+from time import time
+def LinearSearch():
+    r = randrange(1, 16)
+    sTime = time()
+    for i in range(100000001):
+       if r == i:
+           print("找到答案了!是"+str(i))
+           print("線性搜尋法:花了"+str(time()-sTime) + "秒")
+           break
+
+LinearSearch()
+
+
+
+from time import time
+from random import randrange
+def BinarySearch():
+    r = randrange(1, 16)
+    sTime = time()
+    low = 0
+    upper = 10000000
+    
+    while low <= upper:
+        mid = (low + upper) // 2
+        if mid < r:
+            low = mid +1
+            
+        elif mid > r:
+            upper = mid - 1
+        else:
+            print("找到答案了!是"+str(mid))
+            print("二元搜尋法:花了"+str(time()-sTime) + "秒")
+            return
+BinarySearch()
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+ 
+x,y,z = mc.player.getTilePos()
+base = 10
+height = (base//2)+1
+ 
+for i in range(height):
+    x1 = x + i
+    y1 = y + i
+    z1 = z + i
+    
+    x2 = x + base - i
+    #y與y2相同
+    z2 = z + base - i
+    mc.setBlocks(x1, y1, z1, x2, y1, z2, 24)
